@@ -1,0 +1,1079 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #fffaf7 0%,
+            #f8eee8 45%,
+            #eadfd7 100%
+        );
+
+    color: #333;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================
+   PAGE
+======================================== */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    overflow: visible;
+}
+
+
+/* ========================================
+   ENVELOPE WRAPPER
+======================================== */
+
+.envelope-wrapper {
+    position: relative;
+
+    width: 400px;
+
+    height: 300px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    transition:
+        height 1s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    z-index: 1;
+}
+
+
+.envelope-wrapper.open {
+    height: 400px;
+}
+
+
+/* ========================================
+   ENVELOPE
+======================================== */
+
+.envelope {
+    position: relative;
+
+    width: 360px;
+
+    height: 230px;
+
+    perspective: 1200px;
+
+    overflow: visible;
+}
+
+
+/* ========================================
+   LETTER
+======================================== */
+
+.letter {
+    position: absolute;
+
+    width: 330px;
+
+    height: 430px;
+
+    left: 15px;
+
+    top: 10px;
+
+    padding: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffefa,
+            #fff8f0
+        );
+
+    border:
+        1px solid #e8ddd3;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(
+            70,
+            45,
+            35,
+            0.20
+        );
+
+    z-index: 2;
+
+    overflow-y: auto;
+
+    transform:
+        translateY(0);
+
+    transition:
+        transform 1s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #c9a28d
+        transparent;
+}
+
+
+/* ========================================
+   LETTER SCROLLBAR
+======================================== */
+
+.letter::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.letter::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.letter::-webkit-scrollbar-thumb {
+    background: #c9a28d;
+
+    border-radius: 20px;
+}
+
+
+/* ========================================
+   LETTER CONTENT
+======================================== */
+
+.letter-content {
+    padding:
+        35px
+        28px
+        30px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(5px);
+
+    transition:
+        opacity 0.6s ease 0.55s,
+        transform 0.6s ease 0.55s;
+}
+
+
+/* ========================================
+   SMALL TEXT
+======================================== */
+
+.small-text {
+    font-size: 10px;
+
+    color: #a38f82;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.letter h1 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    color: #63483b;
+
+    margin-bottom: 22px;
+}
+
+
+/* ========================================
+   PARAGRAPHS
+======================================== */
+
+.letter p {
+    font-size: 14px;
+
+    line-height: 1.75;
+
+    color: #5b5550;
+
+    margin-bottom: 15px;
+}
+
+
+/* ========================================
+   SUBTITLE
+======================================== */
+
+.letter h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 19px;
+
+    font-weight: normal;
+
+    color: #966752;
+
+    margin-top: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+/* ========================================
+   SIGNATURE
+======================================== */
+
+.signature {
+    margin-top: 25px;
+}
+
+
+.signature strong {
+    color: #674b3d;
+}
+
+
+/* ========================================
+   ENVELOPE BODY
+======================================== */
+
+.envelope-body {
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 360px;
+
+    height: 230px;
+
+    background: #d49a76;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+
+    z-index: 4;
+
+    box-shadow:
+        0 15px 30px
+        rgba(
+            80,
+            50,
+            35,
+            0.18
+        );
+}
+
+
+/* ========================================
+   LEFT FOLD
+======================================== */
+
+.left-fold {
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-top:
+        115px solid transparent;
+
+    border-bottom:
+        115px solid transparent;
+
+    border-left:
+        180px solid #c48968;
+
+    z-index: 2;
+}
+
+
+/* ========================================
+   RIGHT FOLD
+======================================== */
+
+.right-fold {
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-top:
+        115px solid transparent;
+
+    border-bottom:
+        115px solid transparent;
+
+    border-right:
+        180px solid #c48968;
+
+    z-index: 2;
+}
+
+
+/* ========================================
+   BOTTOM FOLD
+======================================== */
+
+.bottom-fold {
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        180px solid transparent;
+
+    border-right:
+        180px solid transparent;
+
+    border-bottom:
+        125px solid #b97859;
+
+    z-index: 4;
+}
+
+
+/* ========================================
+   FLAP
+======================================== */
+
+.flap {
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        180px solid transparent;
+
+    border-right:
+        180px solid transparent;
+
+    border-top:
+        125px solid #e0a37f;
+
+    transform-origin:
+        top center;
+
+    transition:
+        transform 0.9s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+    z-index: 12;
+}
+
+
+/* ========================================
+   HEART SEAL
+======================================== */
+
+.seal {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a86453,
+            #8d4d40
+        );
+
+    color: white;
+
+    font-size: 21px;
+
+    z-index: 15;
+
+    box-shadow:
+        0 5px 12px
+        rgba(
+            70,
+            35,
+            25,
+            0.25
+        );
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+
+/* ========================================
+   OPEN STATE
+======================================== */
+
+.envelope.open .letter {
+    transform:
+        translateY(-170px);
+
+    z-index: 20;
+}
+
+
+.envelope.open .flap {
+    transform:
+        rotateX(180deg);
+
+    z-index: 5;
+}
+
+
+.envelope.open .letter-content {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+.envelope.open .seal {
+    opacity: 0;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        scale(0.6);
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   QUESTION
+======================================== */
+
+.question {
+    position: relative;
+
+    z-index: 50;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+.question h2 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: normal;
+
+    color: #4d4039;
+
+    margin-bottom: 10px;
+}
+
+
+.question p {
+    font-size: 15px;
+
+    color: #776e68;
+
+    margin-bottom: 22px;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.buttons {
+    position: relative;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    min-height: 50px;
+}
+
+
+button {
+    border: none;
+
+    border-radius: 7px;
+
+    padding:
+        12px
+        30px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* ========================================
+   YES
+======================================== */
+
+#yesButton {
+    position: relative;
+
+    z-index: 101;
+
+    background: #6b4f3f;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(
+            80,
+            50,
+            35,
+            0.20
+        );
+}
+
+
+#yesButton:hover {
+    background: #543d31;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ========================================
+   NO
+======================================== */
+
+#noButton {
+    position: relative;
+
+    z-index: 101;
+
+    background: #e5ddd7;
+
+    color: #5c534d;
+}
+
+
+#noButton:hover {
+    background: #d8cec6;
+}
+
+
+/* ========================================
+   CLOSE BUTTON
+======================================== */
+
+.close-button {
+    position: relative;
+
+    z-index: 100;
+
+    display: none;
+
+    margin-top: 20px;
+
+    background: #6b4f3f;
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(
+            80,
+            50,
+            35,
+            0.20
+        );
+}
+
+
+.close-button:hover {
+    background: #543d31;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* ========================================
+   MEMORY SECTION
+======================================== */
+
+.memory-section {
+    margin-top: 35px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid #eaded4;
+}
+
+
+.memory-section h3 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: normal;
+
+    color: #765445;
+
+    margin-bottom: 15px;
+}
+
+
+/* ========================================
+   PHOTO GRID
+   EXACTLY 2 COLUMNS
+======================================== */
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+
+    width: 100%;
+}
+
+
+/* ========================================
+   PHOTO BOX
+======================================== */
+
+.photo-placeholder {
+    width: 100%;
+
+    height: 80px;
+
+    border-radius: 6px;
+
+    background: #f1e7df;
+
+    border:
+        1px dashed #c9ad9c;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* ========================================
+   REAL PHOTOS
+======================================== */
+
+.photo-placeholder img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+
+    display: block;
+}
+
+
+/* ========================================
+   MUSIC
+======================================== */
+
+.music-section {
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid #eaded4;
+}
+
+
+.music-section h3 {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: normal;
+
+    color: #765445;
+
+    margin-bottom: 8px;
+}
+
+
+.music-description {
+    font-size: 11px !important;
+
+    color: #8b7c73 !important;
+
+    margin-bottom: 12px !important;
+}
+
+
+audio {
+    width: 100%;
+
+    height: 38px;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding:
+            30px
+            12px
+            40px;
+
+        justify-content:
+            flex-start;
+
+        padding-top: 70px;
+    }
+
+
+    .envelope-wrapper {
+        width: 320px;
+
+        height: 250px;
+    }
+
+
+    .envelope-wrapper.open {
+        height: 410px;
+    }
+
+
+    .envelope {
+        width: 300px;
+
+        height: 190px;
+    }
+
+
+    .envelope-body {
+        width: 300px;
+
+        height: 190px;
+    }
+
+
+    .left-fold {
+        border-top-width:
+            95px;
+
+        border-bottom-width:
+            95px;
+
+        border-left-width:
+            150px;
+    }
+
+
+    .right-fold {
+        border-top-width:
+            95px;
+
+        border-bottom-width:
+            95px;
+
+        border-right-width:
+            150px;
+    }
+
+
+    .bottom-fold {
+        border-left-width:
+            150px;
+
+        border-right-width:
+            150px;
+
+        border-bottom-width:
+            105px;
+    }
+
+
+    .flap {
+        border-left-width:
+            150px;
+
+        border-right-width:
+            150px;
+
+        border-top-width:
+            105px;
+    }
+
+
+    .letter {
+        width: 280px;
+
+        height: 420px;
+
+        left: 10px;
+
+        top: 8px;
+    }
+
+
+    .letter-content {
+        padding:
+            28px
+            22px
+            25px;
+    }
+
+
+    .letter h1 {
+        font-size: 23px;
+    }
+
+
+    .letter p {
+        font-size: 12px;
+
+        line-height: 1.65;
+    }
+
+
+    .letter h2 {
+        font-size: 17px;
+    }
+
+
+    .envelope.open .letter {
+        transform:
+            translateY(-145px);
+    }
+
+
+    .question {
+        margin-top: 20px;
+    }
+
+
+    .question h2 {
+        font-size: 21px;
+    }
+
+
+    .question p {
+        font-size: 13px;
+    }
+
+
+    .close-button {
+        margin-top: 15px;
+    }
+
+
+    /* =================================
+       MOBILE PHOTOS - 2 COLUMNS
+    ================================= */
+
+    .photo-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 6px;
+    }
+
+
+    .photo-placeholder {
+        height: 65px;
+    }
+
+
+    .photo-placeholder img {
+        height: 65px;
+    }
+
+}
+
+
+/* ========================================
+   SMALL PHONE
+======================================== */
+
+@media (max-width: 350px) {
+
+    .page {
+        padding-top: 55px;
+    }
+
+
+    .envelope-wrapper {
+        transform:
+            scale(0.9);
+
+        transform-origin:
+            top center;
+    }
+
+
+    .question {
+        margin-top: 5px;
+    }
+
+}
